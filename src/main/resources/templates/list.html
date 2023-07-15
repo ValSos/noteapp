@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Лист нотаток</title>
+</head>
+<body>
+<h1>Лист нотаток</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Дії</th>
+    </tr>
+    <tr th:each="note : ${notes.values()}">
+        <td th:text="${note.id}"></td>
+        <td th:text="${note.title}"></td>
+        <td th:text="${note.content}"></td>
+        <td>
+            <a th:href="@{/note/edit(id=${note.id})}">Редагувати</a>
+            <a th:href="@{/note/delete(id=${note.id})}">Видалити</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
